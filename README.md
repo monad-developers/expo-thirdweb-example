@@ -1,0 +1,290 @@
+# Monad Thirdweb Example
+
+This is a Web3 wallet template which uses Expo, React Native, Monad blockchain, and thirdweb SDK for comprehensive blockchain application development.
+
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+### Features
+
+- In-app wallets using phone number, email or social logins (Google, Apple, Facebook)
+- Smart accounts with gas sponsorship support
+- External wallet connections (MetaMask, Coinbase, WalletConnect)
+- Passkey authentication
+- Reading blockchain data and contract events
+- Writing to smart contracts
+- Cryptocurrency purchasing functionality
+- Auto-connecting to the last connected wallet on launch
+
+## Prerequisites
+
+- Node.js
+- Yarn or NPM
+- Expo CLI (Install using: `npm i -g @expo/cli`)
+- thirdweb Account
+
+For Android:
+- [Android Studio](https://developer.android.com/studio) (API version 35 and above)
+  - Guide to setup Android Studio for Expo is available [here](https://docs.expo.dev/workflow/android-studio-emulator/)
+
+For iOS:
+- [Xcode](https://apps.apple.com/in/app/xcode/id497799835?mt=12) (Xcode 16 requires OpenSSL version 3.3.2000)
+  - Guide to setup iOS Simulator for Expo is available [here](https://docs.expo.dev/workflow/ios-simulator/)
+
+### Setting up thirdweb
+
+1. Navigate to [thirdweb Dashboard](https://thirdweb.com/dashboard)
+2. Sign in or create a new account
+3. Create a new project
+4. Copy your Client ID from the project settings
+
+## Get started
+
+### Install dependencies
+
+```bash
+yarn install
+```
+
+### Set up the environment variables
+
+Create a copy of `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Add your thirdweb client ID to the `.env` file:
+
+```
+EXPO_PUBLIC_THIRDWEB_CLIENT_ID=your_client_id_here
+```
+
+#### Getting your thirdweb Client ID
+
+1. Go to [thirdweb Dashboard](https://thirdweb.com/dashboard) and sign in or create an account
+2. Create a new project or select an existing one
+3. Copy the Client ID from your project settings
+4. Add this Client ID as the value for `EXPO_PUBLIC_THIRDWEB_CLIENT_ID` in your `.env` file
+
+### Prebuild for native modules
+
+> [!IMPORTANT]  
+> The thirdweb SDK uses native modules, which means it cannot run on Expo Go. You must build the iOS and Android apps to link the native modules.
+
+```bash
+npx expo prebuild
+```
+
+This will create the `ios` and `android` directories.
+
+### Start the app
+
+For iOS:
+```bash
+yarn ios
+```
+
+For Android:
+```bash
+yarn android
+```
+
+For native app builds use the following commands:
+
+For iOS:
+```bash
+npx expo run:ios
+```
+
+For Android:
+```bash
+npx expo run:android
+```
+
+To run this app, you'll need either:
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+
+## Folder Structure
+
+```
+monad-thirdweb-example/
+  ├── app/                                   # Expo router entrypoint
+  │   ├── (tabs)/                            # Tab-based navigation
+  │   │   ├── _layout.tsx                    # Tab layout configuration
+  │   │   └── index.tsx                      # Main wallet screen
+  │   ├── +html.tsx                          # Web HTML configuration
+  │   ├── +native-intent.tsx                 # Deep link handling
+  │   ├── +not-found.tsx                     # 404 page
+  │   └── _layout.tsx                        # Root layout with ThirdwebProvider
+  ├── assets/
+  │   ├── fonts/                             # Custom fonts
+  │   └── images/                            # App images and icons
+  │       ├── adaptive-icon.png
+  │       ├── icon.png
+  │       ├── monad-logo.png
+  │       └── splash.png
+  ├── components/                            # Reusable UI components
+  │   ├── ThemedButton.tsx                   # Themed button component
+  │   ├── ThemedText.tsx                     # Themed text component
+  │   ├── ThemedView.tsx                     # Themed view component
+  │   ├── SocialProfileCard.tsx              # Social profile display
+  │   └── navigation/
+  │       └── TabBarIcon.tsx                 # Tab bar icons
+  ├── constants/
+  │   ├── Colors.ts                          # App color scheme
+  │   └── thirdweb.ts                        # Blockchain configuration
+  ├── hooks/                                 # Custom React hooks
+  │   ├── useColorScheme.ts                  # Theme detection
+  │   └── useThemeColor.ts                   # Theme color utilities
+  ├── app.json                               # Expo app configuration
+  ├── babel.config.js
+  ├── metro.config.js                        # Metro bundler config
+  ├── package.json
+  ├── tsconfig.json
+  └── yarn.lock
+```
+
+## Troubleshooting
+
+### OpenSSL Error on Xcode 16
+
+If using xcode 16, you may encounter a OpenSSL error when trying to build the app. This is because xcode 16 requires a newer version of OpenSSL than the one specified in the current app.json.
+
+To fix this, change the version of OpenSSL specified in the `app.json` file to `3.3.2000`.
+
+- Open the `app.json` file
+- Find the `ios` > `extraPods` section
+- Set `"version": "3.3.2000"` for the `OpenSSL-Universal` pod
+- Save the file
+
+Then run `npx expo prebuild` to update the native modules with the new OpenSSL version and run the app again.
+
+## Customizing Your App
+
+### Modifying the App Name
+
+Edit the `name` property in the `app.json` file:
+
+```json
+{
+   "expo": {
+      "name": "your-app-name", // ← Edit this
+      ...
+   }
+}  
+```
+
+### Modifying the App Icon
+
+You can edit the app icon by replacing the `assets/images/icon.png` file.
+
+Recommended App Icon size is `1024x1024`.
+
+If you name the icon file something else, edit the `icon` property in `app.json` accordingly:
+
+```json
+{
+   "expo": {
+      "name": "your-app-name",
+      ...
+      "icon": "./assets/images/icon.png", // ← Change this
+      ...
+   }
+}
+```
+
+### Modifying the Splash Screen
+
+Edit the `splash` object in `app.json` to modify the splash screen:
+
+```json
+{
+   "expo": {
+      "name": "your-app-name",
+      ...
+      "splash": { // ← Edit this object
+         "image": "./assets/images/splash.png",
+         "backgroundColor": "#ffffff"
+      }
+   }  
+}
+```
+
+### Modifying the Deep Linking Scheme
+
+Edit the `scheme` property in `app.json` file for your custom deep linking scheme:
+
+```json
+{
+  "expo": {
+    ...
+    "scheme": "your-app-scheme",
+    ...
+  }
+}
+```
+
+For example, if you set this to `mywalletapp`, then `mywalletapp://` URLs would open your app when tapped.
+
+This is a build-time configuration and has no effect in Expo Go.
+
+### Modifying the Package/Bundle Identifier
+
+When publishing to the app store, you need a unique package/bundle identifier. Change it in `app.json`:
+
+```json
+{
+  "expo": {
+    "name": "your-app-name",
+    ...
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourapp", // ← Edit this
+      ...
+    },
+    "android": {
+      ...
+      "package": "com.yourcompany.yourapp" // ← Edit this
+    },
+  }
+}
+```
+
+> [!IMPORTANT]
+> **thirdweb Bundle ID Configuration**: Your `bundleIdentifier` and `package` must match the Bundle ID Restrictions configured in your thirdweb project settings. 
+> 
+> 1. Go to [thirdweb Dashboard](https://thirdweb.com/dashboard)
+> 2. Select your project
+> 3. Navigate to Settings → Bundle ID Restrictions
+> 4. Add your iOS `bundleIdentifier` and Android `package` to the allowed bundle IDs
+> 
+> This ensures your app can properly authenticate with thirdweb services.
+
+## Learn More
+
+To learn more about developing your project with Expo, thirdweb, and Monad, look at the following resources:
+
+### Expo Resources
+- [Expo documentation](https://docs.expo.dev/)
+- [Expo guides](https://docs.expo.dev/guides)
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/)
+
+### thirdweb Resources
+- [thirdweb Documentation](https://portal.thirdweb.com/typescript/v5)
+- [thirdweb Templates](https://thirdweb.com/templates)
+- [thirdweb YouTube](https://www.youtube.com/c/thirdweb)
+
+### Monad Resources
+- [Monad Documentation](https://docs.monad.xyz/)
+- [Tooling and Infrastructure on Monad](https://docs.monad.xyz/tooling-and-infra/)
+
+## Join the Community
+
+- [Monad Discord](https://discord.com/invite/monaddev): Chat with fellow Monad developers and ask questions
+- [thirdweb Discord](https://discord.com/invite/thirdweb): Get help with thirdweb-related questions
+
+## Support
+
+For help or feedback:
+- thirdweb: [visit our support site](https://thirdweb.com/support)
+- Monad: [report issues on GitHub](https://github.com/monad-xyz) or join the Discord community
