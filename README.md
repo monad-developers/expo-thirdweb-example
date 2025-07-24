@@ -23,8 +23,15 @@ You can start developing by editing the files inside the **app** directory. This
 - thirdweb Account
 
 For Android:
+- **JDK 17** (Java Development Kit version 17)
+  - Set the `JAVA_HOME` environment variable to point to your JDK 17 installation
+  - Example: `export JAVA_HOME=/Library/Java/JavaVirtualMachines/microsoft-17.jdk/Contents/Home`
 - [Android Studio](https://developer.android.com/studio) (API version 35 and above)
   - Guide to setup Android Studio for Expo is available [here](https://docs.expo.dev/workflow/android-studio-emulator/)
+  - Configure Gradle JDK in Android Studio:
+    1. Open Android Studio Settings/Preferences
+    2. Navigate to Build, Execution, Deployment → Build Tools → Gradle
+    3. Set Gradle JDK to JDK 17 (e.g., `JAVA_HOME 17.0.13 - aarch64 /Library/Java/JavaVirtualMachines/microsoft-17.jdk/Contents/Home`)
 
 For iOS:
 - [Xcode](https://apps.apple.com/in/app/xcode/id497799835?mt=12) (Xcode 16 requires OpenSSL version 3.3.2000)
@@ -74,22 +81,6 @@ EXPO_PUBLIC_THIRDWEB_CLIENT_ID=your_client_id_here
 ```bash
 npx expo prebuild
 ```
-
-This will create the `ios` and `android` directories.
-
-### Start the app
-
-For iOS:
-```bash
-yarn ios
-```
-
-For Android:
-```bash
-yarn android
-```
-
-For native app builds use the following commands:
 
 For iOS:
 ```bash
