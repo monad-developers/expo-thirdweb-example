@@ -84,12 +84,12 @@ npx expo prebuild
 
 For iOS:
 ```bash
-npx expo run:ios
+yarn ios
 ```
 
 For Android:
 ```bash
-npx expo run:android
+yarn android
 ```
 
 To run this app, you'll need either:
