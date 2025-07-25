@@ -154,7 +154,7 @@ export default function TransferScreen() {
 									wallets={[
 										inAppWallet({
 											auth: {
-												options: ["google", "email", "apple"],
+												options: ["email"],
 											},
 										}),
 									]}
@@ -256,7 +256,7 @@ export default function TransferScreen() {
 									wallets={[
 										inAppWallet({
 											auth: {
-												options: ["google", "email", "apple"],
+												options: ["email"],
 											},
 										}),
 									]}
