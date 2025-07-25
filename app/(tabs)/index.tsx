@@ -66,7 +66,28 @@ export default function TransferScreen() {
 	};
 
 	const handleTransfer = async () => {
-		if (!activeAccount || !isValidAddress(toAddress) || !isValidAmount(amount)) {
+		if (!activeAccount) {
+			Alert.alert('Error', 'Please connect your wallet first');
+			return;
+		}
+		
+		if (!toAddress.trim()) {
+			Alert.alert('Error', 'Please enter a recipient address');
+			return;
+		}
+		
+		if (!isValidAddress(toAddress)) {
+			Alert.alert('Error', 'Please enter a valid Ethereum address');
+			return;
+		}
+		
+		if (!amount.trim()) {
+			Alert.alert('Error', 'Please enter an amount to transfer');
+			return;
+		}
+		
+		if (!isValidAmount(amount)) {
+			Alert.alert('Error', 'Please enter a valid amount (must be greater than 0)');
 			return;
 		}
 
