@@ -27,7 +27,7 @@ import {
 	useDisconnect,
 } from "thirdweb/react";
 import { inAppWallet } from "thirdweb/wallets";
-import { client, chain } from "@/constants/thirdweb";
+import { getClient, chain } from "@/constants/thirdweb";
 import { Ionicons } from "@expo/vector-icons";
 import { prepareTransaction, toWei } from "thirdweb";
 
@@ -42,7 +42,7 @@ export default function TransferScreen() {
 	const { disconnect } = useDisconnect();
 
 	const { data: balance, refetch: refetchBalance } = useWalletBalance({
-		client,
+		client: getClient(),
 		address: activeAccount?.address,
 		chain: chain,
 	}, {
@@ -73,7 +73,7 @@ export default function TransferScreen() {
 		const transaction = prepareTransaction({
 			to: toAddress,
 			chain: chain,
-			client,
+			client: getClient(),
 			value: toWei(amount),
 		});
 
@@ -129,7 +129,7 @@ export default function TransferScreen() {
 						{!activeAccount ? (
 							<View style={styles.connectButtonContainer}>
 								<ConnectButton
-									client={client}
+									client={getClient()}
 									wallets={[
 										inAppWallet({
 											auth: {
@@ -231,7 +231,7 @@ export default function TransferScreen() {
 						<View style={styles.buttonContainer}>
 							{!activeAccount ? (
 								<ConnectButton
-									client={client}
+									client={getClient()}
 									wallets={[
 										inAppWallet({
 											auth: {
