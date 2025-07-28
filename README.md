@@ -277,5 +277,5 @@ To learn more about developing your project with Expo, thirdweb, and Monad, look
 ## Support
 
 For help or feedback:
-- thirdweb: [visit our support site](https://thirdweb.com/support)
+- thirdweb: [support site](https://thirdweb.com/support)
 - Monad: [report issues on GitHub](https://github.com/monad-xyz) or join the Discord community
