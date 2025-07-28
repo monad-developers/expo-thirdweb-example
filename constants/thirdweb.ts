@@ -1,16 +1,23 @@
 import { createThirdwebClient } from "thirdweb";
 import { monadTestnet } from "thirdweb/chains";
 
-const clientId = process.env.EXPO_PUBLIC_THIRDWEB_CLIENT_ID!;
+let _client: ReturnType<typeof createThirdwebClient> | null = null;
 
-if (!clientId) {
-	throw new Error(
-		"Missing EXPO_PUBLIC_THIRDWEB_CLIENT_ID - make sure to set it in your .env file",
-	);
-}
+export const getClient = () => {
+	if (!_client) {
+		const clientId = process.env.EXPO_PUBLIC_THIRDWEB_CLIENT_ID;
+		if (!clientId) {
+			throw new Error("EXPO_PUBLIC_THIRDWEB_CLIENT_ID is not set");
+		}
+		_client = createThirdwebClient({
+			clientId,
+		});
+	}
+	return _client;
+};
 
-export const client = createThirdwebClient({
-	clientId,
-});
+export const hasClientId = () => {
+	return !!process.env.EXPO_PUBLIC_THIRDWEB_CLIENT_ID;
+};
 
 export const chain = monadTestnet;
