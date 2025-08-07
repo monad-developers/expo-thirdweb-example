@@ -35,13 +35,6 @@ For iOS:
 - [Xcode](https://apps.apple.com/in/app/xcode/id497799835?mt=12) (Xcode 16 requires OpenSSL version 3.3.2000)
   - Guide to setup iOS Simulator for Expo is available [here](https://docs.expo.dev/workflow/ios-simulator/)
 
-### Setting up thirdweb
-
-1. Navigate to [thirdweb Dashboard](https://thirdweb.com/dashboard)
-2. Sign in or create a new account
-3. Create a new project
-4. Copy your Client ID from the project settings
-
 ## Get started
 
 ### Install dependencies
@@ -58,18 +51,16 @@ Create a copy of `.env.example`:
 cp .env.example .env
 ```
 
-Add your thirdweb client ID to the `.env` file:
-
-```
-EXPO_PUBLIC_THIRDWEB_CLIENT_ID=your_client_id_here
-```
-
-#### Getting your thirdweb Client ID
+### Getting your thirdweb Client ID
 
 1. Go to [thirdweb Dashboard](https://thirdweb.com/dashboard) and sign in or create an account
 2. Create a new project or select an existing one
 3. Copy the Client ID from your project settings
-4. Add this Client ID as the value for `EXPO_PUBLIC_THIRDWEB_CLIENT_ID` in your `.env` file
+4. Add this Client ID as the value for `EXPO_PUBLIC_THIRDWEB_CLIENT_ID` in your `.env` file:
+
+```
+EXPO_PUBLIC_THIRDWEB_CLIENT_ID=your_client_id_here
+```
 
 ### Prebuild for native modules
 
