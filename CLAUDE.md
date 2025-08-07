@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Expo React Native starter template for building Web3/blockchain applications using the thirdweb SDK. The app demonstrates wallet connections, smart contract interactions, and cryptocurrency purchases.
+This is an Expo React Native starter template for building Web3/blockchain applications using the thirdweb SDK. The app demonstrates wallet connections and cryptocurrency transfers on the Monad blockchain.
 
 ## Essential Commands
 
@@ -42,29 +42,25 @@ yarn reset-project
 ## Architecture Overview
 
 ### Navigation Structure
-The app uses Expo Router (file-based routing) with a tab-based layout:
-- `/app/(tabs)/connect.tsx` - Wallet connection examples
-- `/app/(tabs)/read.tsx` - Reading blockchain data
-- `/app/(tabs)/write.tsx` - Writing to smart contracts
-- `/app/(tabs)/buy.tsx` - Cryptocurrency purchasing
+The app uses Expo Router (file-based routing) with a single main screen:
+- `/app/(tabs)/index.tsx` - Main transfer screen with wallet connection and MON token transfers
 
 ### Key Integration Points
 
 1. **ThirdwebProvider Configuration** (`/app/_layout.tsx`):
-   - Wraps the entire app
-   - Configures supported chains (Base, Base Sepolia, Ethereum)
-   - Sets up wallet connection options
+   - Wraps the entire app with ThirdwebProvider
+   - Validates required environment variables before initialization
+   - Handles client configuration loading
 
-2. **Smart Contract Integration** (`/constants/thirdweb.ts`):
-   - Defines contract addresses and ABIs
-   - Exports pre-configured contract instances
-   - Manages chain-specific configurations
+2. **Thirdweb Client Configuration** (`/constants/thirdweb.ts`):
+   - Creates and manages thirdweb client instance
+   - Configures Monad testnet chain
+   - Handles environment variable validation for client ID
 
 3. **Wallet Connections**:
-   - In-app wallets: Email, phone, social logins (Google, Apple, Facebook)
-   - External wallets: MetaMask, Coinbase, WalletConnect
-   - Smart accounts with gas sponsorship support
-   - Passkey authentication
+   - In-app wallet with email authentication
+   - Wallet balance display
+   - Account management with disconnect functionality
 
 ### Component Structure
 - `/components/` - Reusable UI components following themed pattern (ThemedButton, ThemedText, etc.)

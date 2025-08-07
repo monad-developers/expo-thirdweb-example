@@ -1,19 +1,17 @@
 # Monad Thirdweb Example
 
-This is a Web3 wallet template which uses Expo, React Native, Monad blockchain, and thirdweb SDK for comprehensive blockchain application development.
+This is a Web3 wallet template which uses Expo, React Native, Monad blockchain, and thirdweb SDK for blockchain application development.
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
 ### Features
 
-- In-app wallets using phone number, email or social logins (Google, Apple, Facebook)
-- Smart accounts with gas sponsorship support
-- External wallet connections (MetaMask, Coinbase, WalletConnect)
-- Passkey authentication
-- Reading blockchain data and contract events
-- Writing to smart contracts
-- Cryptocurrency purchasing functionality
-- Auto-connecting to the last connected wallet on launch
+- In-app wallet using email authentication
+- Wallet balance display and refresh
+- MON token transfers on Monad testnet
+- Account management with disconnect functionality
+- Transaction history with blockchain explorer links
+- Input validation for addresses and amounts
 
 ## Prerequisites
 
@@ -99,7 +97,7 @@ To run this app, you'll need either:
 ## Folder Structure
 
 ```
-monad-thirdweb-example/
+expo-thirdweb-example/
   ├── app/                                   # Expo router entrypoint
   │   ├── (tabs)/                            # Tab-based navigation
   │   │   ├── _layout.tsx                    # Tab layout configuration
