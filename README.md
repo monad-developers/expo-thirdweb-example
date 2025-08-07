@@ -251,21 +251,11 @@ When publishing to the app store, you need a unique package/bundle identifier. C
 
 ## Learn More
 
-To learn more about developing your project with Expo, thirdweb, and Monad, look at the following resources:
+To learn more about developing your project with Expo, thirdweb, and Monad look at the following resources:
 
-### Expo Resources
-- [Expo documentation](https://docs.expo.dev/)
-- [Expo guides](https://docs.expo.dev/guides)
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/)
-
-### thirdweb Resources
-- [thirdweb Documentation](https://portal.thirdweb.com/typescript/v5)
-- [thirdweb Templates](https://thirdweb.com/templates)
-- [thirdweb YouTube](https://www.youtube.com/c/thirdweb)
-
-### Monad Resources
-- [Monad Documentation](https://docs.monad.xyz/)
-- [Tooling and Infrastructure on Monad](https://docs.monad.xyz/tooling-and-infra/)
+- Expo: [documentation](https://docs.expo.dev/) | [guides](https://docs.expo.dev/guides) | [learn](https://docs.expo.dev/tutorial/introduction/)
+- Thirdweb: [documentation](https://portal.thirdweb.com/typescript/v5) | [templates](https://thirdweb.com/templates) | [YouTube](https://www.youtube.com/c/thirdweb)
+- Monad: [docs](https://docs.monad.xyz/) | [tooling and infra](https://docs.monad.xyz/tooling-and-infra/)
 
 ## Join the Community
 
