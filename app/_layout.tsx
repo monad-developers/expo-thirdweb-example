@@ -110,7 +110,7 @@ export default function RootLayout() {
 					barStyle="light-content"
 				/>
 				<Stack>
-					<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+					<Stack.Screen name="index" options={{ headerShown: false }} />
 					<Stack.Screen name="+not-found" />
 				</Stack>
 			</ThemeProvider>
