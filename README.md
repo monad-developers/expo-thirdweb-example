@@ -88,14 +88,12 @@ To run this app, you'll need either:
 
 ```
 expo-thirdweb-example/
-  ├── app/                                   # Expo router entrypoint
-  │   ├── (tabs)/                            # Tab-based navigation
-  │   │   ├── _layout.tsx                    # Tab layout configuration
-  │   │   └── index.tsx                      # Main wallet screen
+  ├── app/                                   # Expo router entrypoint 
   │   ├── +html.tsx                          # Web HTML configuration
   │   ├── +native-intent.tsx                 # Deep link handling
   │   ├── +not-found.tsx                     # 404 page
-  │   └── _layout.tsx                        # Root layout with ThirdwebProvider
+  │   ├── _layout.tsx                        # Root layout with ThirdwebProvider
+  │   └── index.tsx                          # Main screen
   ├── assets/
   │   ├── fonts/                             # Custom fonts
   │   └── images/                            # App images and icons
