@@ -1,4 +1,4 @@
-# Monad Thirdweb Example
+# Monad Expo Thirdweb Example
 
 This is a Web3 wallet template which uses Expo, React Native, Monad blockchain, and thirdweb SDK for blockchain application development.
 
@@ -17,7 +17,6 @@ You can start developing by editing the files inside the **app** directory. This
 
 - Node.js
 - Yarn or NPM
-- Expo CLI (Install using: `npm i -g @expo/cli`)
 - thirdweb Account
 
 For Android:
