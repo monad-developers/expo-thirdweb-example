@@ -64,5 +64,8 @@
 		"react-test-renderer": "19.1.0",
 		"typescript": "~5.8.3"
 	},
-	"private": true
+	"private": true,
+	"resolutions": {
+		"react-server-dom-webpack": "19.0.1"
+	}
 }
