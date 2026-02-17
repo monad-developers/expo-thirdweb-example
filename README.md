@@ -54,8 +54,9 @@ cp .env.example .env
 
 1. Go to [thirdweb Dashboard](https://thirdweb.com/dashboard) and sign in or create an account
 2. Create a new project or select an existing one
-3. Copy the Client ID from your project settings
-4. Add this Client ID as the value for `EXPO_PUBLIC_THIRDWEB_CLIENT_ID` in your `.env` file:
+3. Make sure to check the allow-all-domains flag in the Allowed domains section.
+4. Copy the Client ID from your project settings
+5. Add this Client ID as the value for `EXPO_PUBLIC_THIRDWEB_CLIENT_ID` in your `.env` file:
 
 ```
 EXPO_PUBLIC_THIRDWEB_CLIENT_ID=your_client_id_here
